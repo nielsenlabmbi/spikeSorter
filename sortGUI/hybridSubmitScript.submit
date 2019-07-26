@@ -1,0 +1,24 @@
+Universe = vanilla
++SourceLab="connor"
+#  use a specific machine : 
+# Requirements = OpSys == "LINUX" && Arch == "x86_64"  && (Machine == "compute-1-7.local" || Machine == "compute-1-8.local")
+
+## JK  NEGOTIATOR_POST_JOB_RANK = isUndefined(RemoteOwner) * (KFlops - SlotID)
+# Requirements = OpSys == "LINUX" && Arch == "x86_64" && Machine != "mbcluster"
+
+# JK 10 Sep 2018 limit active cores
+# Requirements = (name == "slot1@compute-0-0.local")
+Environment = HOME=/home/isis/
+notification 	= Complete
+notify_user 	= iwyche1@jhu.edu
+Executable = /home/isis/spikesFromProbe/spikesRunScript.sh
+initialdir = /home/isis/spikesFromProbe/
+
+Log = makeHybridDatasetLog.txt
+
+Notification = Error
+
+Arguments = $$(Arch) makeHybridDataset $(Process)
+Output = output/matlab.$(Process).out
+Error = err/matlab.$(Process).err
+Queue 200 
