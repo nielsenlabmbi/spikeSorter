@@ -15,7 +15,7 @@ expFolder is a variable containing a path that is stored on the Settings.mat fil
    - experiment: the experiment name.
    - Th: unique threshold to detect spikes on any channel that is not bad.
 
-3. The experiment file needs to be copied into  "/home/alempel1/spikesFromProbe" replacing  any previous experiment file. Also the experiment folder (which includes the raw data) needs to be copied to the same folder. 
+3. The experiment file needs to be copied into  "/home/alempel1/spikesFromProbe" replacing  any previous experiment file. Also the experiment folder (which includes the raw data) needs to be copied to the same folder. 
 
 4. Submit the "spikesSubmitScript.submit" to the cluster: From the Terminal input:
    - ssh 'user'@'ip adress
@@ -26,7 +26,7 @@ expFolder is a variable containing a path that is stored on the Settings.mat fil
 5. Merge spikes files: The cluster will output 200 files into the 'SpikeFiles" folder in the experiment folder that you copied to the cluster. These files contain the spike information for spikes detected in each fraction of the recording. This files are merged in a unique spikes file using script "mergeSpikesFiles". The merged file will include a matrix call "Properties" a vector called "idk" and a cell called "PropTitles". The "Properties" vector includes a number of properties for each detected spike. The spike waveforms are not handled by the spike detection algorithm as the files would be to heavy and hard to work with.  The cell PropTitles indicate which property is included in the Properties matrix. These may change but at the moment they include: 
    - Amp(0): amplitude (minimum value minus baseline) at the channel of detection (the one with the minimum value).
    - Amp(-4 to 4): value at sample 16 (detected minimum of spike) for those channels neighboring the channel of detection (4 channels up to 4 channels down the order given by the probe type. When a spike is detected at the end of a probe and a channel in some direction does not exist, that amplitude is set to 0.
-   - Pk2Pk Amp: Amplitude at detection channel given as minimum - post valley instead of - baseline.Energy: Energy of  the spike waveform (41 samples as described in SpikesIntan) at the channel of detection.
+   - Pk2Pk Amp: Amplitude at detection channel given as minimum - post valley instead of - baseline. Energy: Energy of  the spike waveform (41 samples as described in SpikesIntan) at the channel of detection.
    - Wvf width: Width of waveform at the channel of detection, post valley position is determined as the first local maxima after sample 16 (where the minimum is).
    - CHs Width: Calculated as Amp(0) divided by sum of all Amps. Gives a metric of how wide is the spike across channels of the probe.
    - CH Pos: The position of the spike across the probe measured as the center of mass of the spike across channels -1 to 1 (detected +/- 1).
