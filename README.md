@@ -2,7 +2,9 @@
 
 2/27/18
 
-This process relays on several scripts and requires the cluster to be done in a short time.
+This process relays on several scripts:
+makeExpermientFile.mat: This first scripts takes the binnary data file and some user input to create am experiment.mat file that contains information important to extract spikes form the recording. This information includes: Information about the probe, mainly number of channels and an order index for each channel that will arrange them in 1 dimension. This order is important in that it determines which channels neighboor each other which impacts on the effects of artifitial refractory periods (see notes on spikesFunction).
+
 Steps:
 
 1. Copy your data folder into your "expFolder": 
