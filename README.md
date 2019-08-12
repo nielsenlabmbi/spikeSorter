@@ -34,10 +34,9 @@ Save your data in the path specify by expFolder in settings.mat. The folder wher
 5. Merge spikes files: These files contain the spike information for spikes detected in each fraction of the recording. This files are merged in a unique spikes file using script "mergeSpikesFiles". The merged file will include a matrix call "Properties" a vector called "idk" and a cell called "PropTitles". The "Properties" vector includes a number of properties for each detected spike. The spike waveforms are not handled by the spike detection algorithm as the files would be to heavy and hard to work with.  The cell PropTitles indicate which property is included in the Properties matrix. These may be edited but at the moment they include: 
    - Amp(0): amplitude (minimum value minus maximum after this minimum. i.e. peak to peak amplitude) at the channel of detection (the one with the largest negative peak).
    - Amp(-4 to 4): value at peakSample (detected minimum of spike in detected channel) minus maximum after this sample (peak to peak amplitude) for those channels neighboring the channel of detection (4 channels up-left to 4 channels down-right). Channels are sorted from up left to bottom right. When a spike is detected at the end of a probe and a channel in some direction does not exist, that amplitude is set to 0.
-   - Negative Amp: Amplitude at detection channel given as minimum minus baseline (before begative peak). 
+   - Hyperpol Peak: Amplitude at detection channel given as minimum minus baseline (before begative peak). 
 - Energy: Energy of the spike waveform at the channel of detection.
    - Wvf width: Width of waveform at the channel of detection, post valley position is determined as the first local maxima after sample peakSample (where the minimum is).
-
    - CHs Width: Calculated as Amp(0) divided by sum of all Amps. Gives a metric of how wide is the spike across channels of the probe.
    - CH Pos: The position of the spike across the probe measured as the center of mass of the spike across channels -1 to 1 (detected +/- 1). This gives center of mass in one dimension which is the order of channels from up-left to down-right.
 - x_cm/y_cm: Center of mas on x/y dimension given spike amplitudes (peak to peak) on all surrounding channels.
