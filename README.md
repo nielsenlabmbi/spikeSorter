@@ -39,11 +39,11 @@ Save your data in the path specify by expFolder in settings.mat. The folder wher
    - Wvf width: Width of waveform at the channel of detection, post valley position is determined as the first local maxima after sample peakSample (where the minimum is).
    - CHs Width: Calculated as Amp(0) divided by sum of all Amps. Gives a metric of how wide is the spike across channels of the probe.
    - CH Pos: The position of the spike across the probe measured as the center of mass of the spike across channels -1 to 1 (detected +/- 1). This gives center of mass in one dimension which is the order of channels from up-left to down-right.
-- x_cm/y_cm: Center of mas on x/y dimension given spike amplitudes (peak to peak) on all surrounding channels.
-- x/y_detected: X and Y position of channel where spike was detected.
+   - x_cm/y_cm: Center of mas on x/y dimension given spike amplitudes (peak to peak) on all surrounding channels.
+   - x/y_detected: X and Y position of channel where spike was detected.
    - Timestamp: sample of detection.
    - CH detected: The channel were the spike was detected (largest negative peak).
-- Shank: the shank to witch the channel where spike was detected belongs. 
+   - Shank: the shank to witch the channel where spike was detected belongs. 
 Finally, idk is a vector of length = number of detected spikes that is initialized as all zeros. This will later indicate cluster number when sorting.
 
 6. Sort your spikes using "sortGUI" which essentially makes changes to "idk" in spikes file.
